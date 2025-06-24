@@ -10,7 +10,7 @@ Managing investments across multiple brokerages is tedious and fragmented. **Por
 - **Add & Remove Stocks**  
   Manage `symbol`, `quantity`, `purchase_price`, and `purchase_date`.
 
-- **Fetch Live Quotes (every 30s)**  
+- **Fetch Live Quotes**  
   Get real-time `price`, `daily change (d)`, and `percent change (dp)` via Finnhub.io.
 
 - **View a Portfolio Summary**  
@@ -64,6 +64,5 @@ Managing investments across multiple brokerages is tedious and fragmented. **Por
   - “N/A” fallbacks for incomplete data  
   - Guarded formatting to avoid runtime errors  
 - **Performance Optimizations:**  
-  - Smart `useEffect` dependencies  
-  - 30-second background refresh  
+  - Smart `useEffect` dependencies    
   - Capped symbol list (limit 50 tickers)
