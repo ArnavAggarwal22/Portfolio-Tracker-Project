@@ -1,13 +1,10 @@
-// backend/routes/stocks.js
+
 const express = require('express');
 const router  = express.Router();
 const pool    = require('../config/database');
 const axios   = require('axios');
 
-// ————————————————————————————————————————————————
-// GET /api/stocks
-// Return only the logged-in user’s stocks
-// ————————————————————————————————————————————————
+
 router.get('/', async (req, res) => {
   const userId = req.user.id;
 
@@ -26,10 +23,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ————————————————————————————————————————————————
-// POST /api/stocks
-// Insert a new stock tied to the logged-in user
-// ————————————————————————————————————————————————
+
 router.post('/', async (req, res) => {
   const userId = req.user?.id;
   const { symbol, quantity, purchase_price, purchase_date } = req.body;
@@ -60,10 +54,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// ————————————————————————————————————————————————
-// DELETE /api/stocks/:id
-// Only allow deleting if it belongs to this user
-// ————————————————————————————————————————————————
+
 router.delete('/:id', async (req, res) => {
   const userId = req.user.id;
   const { id } = req.params;
@@ -88,10 +79,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// ————————————————————————————————————————————————
-// GET /api/stocks/price/:symbol
-// Fetch current price from Finnhub
-// ————————————————————————————————————————————————
+
 router.get('/price/:symbol', async (req, res) => {
   const { symbol } = req.params;
 
@@ -109,10 +97,7 @@ router.get('/price/:symbol', async (req, res) => {
   }
 });
 
-// ————————————————————————————————————————————————
-// POST /api/stocks/prices
-// Batch-fetch current price, change, and percent change
-// ————————————————————————————————————————————————
+
 router.post('/prices', async (req, res) => {
   const { symbols } = req.body;
 
