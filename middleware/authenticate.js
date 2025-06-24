@@ -10,8 +10,8 @@ module.exports = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = {
-      id: decoded.userId, // 🔥 FIX: map `userId` from token to `id`
-      email: decoded.email // if needed
+      id: decoded.userId, 
+      email: decoded.email
     };
     next();
   } catch (err) {
